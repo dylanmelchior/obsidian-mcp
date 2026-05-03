@@ -15,18 +15,21 @@ namespace ObsidianMCP.Services
             _vaultPath = vaultPath;
         }
 
-        public List<string> findMatchingPaths(string searchParameter)
+        public async Task<List<string>> FindMatchingPaths(string searchParameter)
         {
-            Regex rg = new Regex(searchParameter + ".md$");
-            List<string> matchingPaths = [];
-            foreach(string path in Directory.EnumerateFiles(_vaultPath, "*.md", SearchOption.AllDirectories))
+            return await Task.Run(() =>
             {
-                if (rg.IsMatch(path))
+                Regex rg = new(Regex.Escape(searchParameter) + @"\.md$");
+                List<string> matchingPaths = [];
+                foreach (string path in Directory.EnumerateFiles(_vaultPath, "*.md", SearchOption.AllDirectories))
                 {
-                    matchingPaths.Add(path);
+                    if (rg.IsMatch(path))
+                    {
+                        matchingPaths.Add(path);
+                    }
                 }
-            }
-            return matchingPaths;
+                return matchingPaths;
+            });
         }
     }
 }
