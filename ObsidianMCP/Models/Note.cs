@@ -20,11 +20,11 @@ namespace ObsidianMCP.Models
             NotePath = notePath;
             Metadata = metadata;
         }
-    }
 
     public override string ToString()
-    {
+        {
             return this.Content;
-      
-    }
+
+        }
+    } 
 }
