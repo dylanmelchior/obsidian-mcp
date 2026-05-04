@@ -13,7 +13,7 @@ builder.Services.AddMcpServer()
 
 builder.Services.AddSingleton(_ =>
 {
-    var vaultPath = "C:\\Users\\dmelc\\Desktop\\Obsidian\\Dylan's Vault";
+    var vaultPath = "C:\\users\\dmelc\\Desktop\\Obsidian\\Dylan's Vault";
     return new VaultReader(vaultPath);
 });
 
@@ -21,6 +21,12 @@ builder.Services.AddSingleton(_ =>
 {
     var vaultPath = "C:\\Users\\dmelc\\Desktop\\Obsidian\\Dylan's Vault";
     return new SearchService(vaultPath);
+});
+
+builder.Services.AddSingleton(_ =>
+{
+    var vaultPath = @"C:\Users\dmelc\Desktop\Obsidian\Dylan's Vault";
+    return new VaultWriter(vaultPath);
 });
 
 builder.Services.AddSingleton<ObsidianTools>();

@@ -11,17 +11,11 @@ using ObsidianMCP.Models;
 namespace ObsidianMCP.Tools
 {
     [McpServerToolType]
-    internal class ObsidianTools
+    public class ObsidianTools(VaultReader reader, VaultWriter writer, SearchService searchService)
     {
-        private readonly VaultReader reader;
-        private readonly VaultWriter writer;
-        private readonly SearchService searchService;
-        public ObsidianTools(VaultReader reader, VaultWriter writer, SearchService searchService)
-        {
-            this.reader = reader;
-            this.writer = writer;
-            this.searchService = searchService;
-        }
+        private readonly VaultReader reader = reader;
+        private readonly VaultWriter writer = writer;
+        private readonly SearchService searchService = searchService;
 
         [McpServerTool, Description("Get a list of all notes in the vault.")]
         public async Task<List<string>> ListNotes()

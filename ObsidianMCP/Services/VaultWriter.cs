@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ObsidianMCP.Services
 {
-    internal class VaultWriter
+    public class VaultWriter
     {
         /// <summary>
         /// Path to the obsidian vault.

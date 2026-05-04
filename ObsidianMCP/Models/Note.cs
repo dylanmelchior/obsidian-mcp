@@ -6,22 +6,14 @@ using System.Threading.Tasks;
 
 namespace ObsidianMCP.Models
 {
-    internal class Note
+    public class Note(string title, string content, string notePath, NoteMetadata metadata)
     {
-        public string Title { get; set; }
-        public string Content { get; set; }
-        public string NotePath { get; set; }
-        public NoteMetadata Metadata { get; set; }
+        public string Title { get; set; } = title;
+        public string Content { get; set; } = content;
+        public string NotePath { get; set; } = notePath;
+        public NoteMetadata Metadata { get; set; } = metadata;
 
-        public Note(string title, string content, string notePath, NoteMetadata metadata)
-        {
-            Title = title;
-            Content = content;
-            NotePath = notePath;
-            Metadata = metadata;
-        }
-
-    public override string ToString()
+        public override string ToString()
         {
             return this.Content;
 

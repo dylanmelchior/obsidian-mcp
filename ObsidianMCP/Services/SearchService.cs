@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ObsidianMCP.Services
 {
-    internal class SearchService
+    public class SearchService
     {
         private readonly string _vaultPath;
         public SearchService(string vaultPath)

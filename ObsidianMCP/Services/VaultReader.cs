@@ -7,7 +7,7 @@ using ObsidianMCP.Models;
 
 namespace ObsidianMCP.Services
 {
-    internal class VaultReader
+    public class VaultReader
     {
         /// <summary>
         /// Path to the obsidian vault.
