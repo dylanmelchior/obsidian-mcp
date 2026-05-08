@@ -33,7 +33,7 @@ namespace ObsidianMCP.Services
         }
         public async Task<Note> ReadNote(string notePath)
         {
-            string fullPath = Path.Combine(_vaultPath, notePath) + ".md";
+            string fullPath = Path.Combine(_vaultPath, notePath);
             if (!File.Exists(fullPath))
             {
                 throw new FileNotFoundException($"Note not found at path: {fullPath}");
@@ -51,6 +51,14 @@ namespace ObsidianMCP.Services
             {
                 var noteFiles = Directory.GetFiles(_vaultPath, "*.md", SearchOption.AllDirectories);
                 return noteFiles.Select(f => Path.GetRelativePath(_vaultPath, f)).ToArray();
+            });
+        }
+
+        public static async Task<NoteMetadata> GetNoteMetadata(Note note)
+        {
+            return await Task.Run(() =>
+            {
+                return note.Metadata;
             });
         }
     }

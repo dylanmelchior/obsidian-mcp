@@ -19,7 +19,7 @@ namespace ObsidianMCP.Services
         {
             return await Task.Run(() =>
             {
-                Regex rg = new(Regex.Escape(searchParameter) + @"\.md$");
+                Regex rg = new(Regex.Escape(searchParameter) + @"\.md$", RegexOptions.IgnoreCase);
                 List<string> matchingPaths = [];
                 foreach (string path in Directory.EnumerateFiles(_vaultPath, "*.md", SearchOption.AllDirectories))
                 {

@@ -49,5 +49,11 @@ namespace ObsidianMCP.Tools
             List<string> matchingPaths = await searchService.FindMatchingPaths(searchParameter);
             return matchingPaths;
         }
+
+        [McpServerTool, Description("Read a notes metadata.")]
+        public async Task<string> ReadNoteMetada(string notePath)
+        {
+            
+        }
     }
 }
